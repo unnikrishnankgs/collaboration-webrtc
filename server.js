@@ -1,8 +1,30 @@
+
+var fs = require('fs');
+
+var https = require('https');
+    var privateKey  = fs.readFileSync('ws.key', 'utf8');
+    var certificate = fs.readFileSync('ws.crt', 'utf8');
+
+    var credentials = {key: privateKey, cert: certificate};
+    var express = require('express');
+    var app = express();
+
+    //... bunch of other express stuff here ...
+
+    //pass in your express app and credentials to create an https server
+    var httpsServer = https.createServer(credentials, app);
+    httpsServer.listen(9090, "172.17.181.112");
+   
+//const localWebServer = require('local-web-server');
+
+
+
 //require ws library - which we had installed #npm install ws
 // load ws module using require() and create a Server
 var WebSocketServer = require('ws').Server;
-var wss = new WebSocketServer({port:9090});
+//var wss = new WebSocketServer({port:9090});
 
+var wss = new WebSocketServer({server:httpsServer});
 //var to store all the connected collab. clients
 var users = {};
 

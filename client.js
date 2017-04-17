@@ -8,7 +8,7 @@ var localConnection; //to the internet
 
 
 /** connect to the server! */
-var conn = new WebSocket('ws://192.168.173.101:9090');
+var conn = new WebSocket('wss://172.17.181.112:9090');
 conn.onopen = function () {
 	console.log("connected to the server");
 };

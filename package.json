@@ -3,5 +3,11 @@
     "description":"web-rtc-collaboration",
     "version":"0.1.0",
     "author":"unnikrishnankgs",
-    "license":"SJSU"
+    "license":"SJSU",
+    "local-web-server": {
+    "port": 8080
+    },
+    "scripts": {
+    "start": "ws"
+    }
 }
